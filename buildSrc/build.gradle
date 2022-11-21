@@ -1,0 +1,13 @@
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/'
+    }
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
+dependencies {
+    api project(':download-torrent')
+}

@@ -1,0 +1,12 @@
+import com.hivestead.plugin.DownloadTorrentTask
+
+plugins {
+    id 'com.hivestead.download-torrent'
+}
+
+project.rootDir.toPath().resolve("torrents").eachFileMatch(groovy.io.FileType.FILES, ~/.*\.torrent/) { t ->
+    logger.error(t.fileName.toString())
+    tasks.register("Download ${t.fileName}", DownloadTorrentTask) {
+        torrentFile = t
+    }
+}
